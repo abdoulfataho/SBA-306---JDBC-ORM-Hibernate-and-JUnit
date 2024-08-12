@@ -31,7 +31,7 @@ public class Course  {
     @Column(name = "instructor", length = 50, nullable = false)
     private String instructor;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REMOVE,
+    @ManyToMany(targetEntity =Student.class,fetch = FetchType.EAGER, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REMOVE,
             CascadeType.PERSIST })
     @JoinTable(name = "students_courses", joinColumns = @JoinColumn(name = "courses_id"), inverseJoinColumns = @JoinColumn(name = "student_email"))
     private Set<Student> students = new HashSet<>();
